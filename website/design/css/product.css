@@ -1,0 +1,114 @@
+:root {
+    --bg-color: #f5f5f5;
+    --red-color: #ea7186;
+    --yellow-color: #F2C76E;
+    --light-blue-color: #7A77B9;
+    --light-blue-2-color: #BD9DEA;
+    --white-color: #ffffff;
+    --black-color: #212121;
+    --main-transition: all .4s ease-in-out;
+}
+.details-row {
+    display: flex;
+    width: 100%;
+    border-bottom: 2px solid rgba(0, 0, 0, .2);
+    padding: 10px 0;
+}
+.details-row > .row-name {
+    width: 300px;
+    font-size: 2rem;
+    color: var(--red-color);
+}
+.details-row .table-responsive {
+    width: calc(100% - 200px);
+}
+.table-responsive > table {
+    width: 100%;
+}
+.details-row table th,
+.details-row table td {
+    text-align: left;
+    padding: 10px;
+}
+.row-table-title {
+    width: 150px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: rgba(0, 0, 0, .8);
+}
+.row-table-data {
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.product-delete-btn{
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+.carousel-images {
+    flex: 1;
+    height: 350px;
+    position: relative;
+}
+.carousel-images > ul {
+    width: 100%;
+    height: auto;
+    list-style: none;
+}
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 350px;
+    opacity: 0;
+    inset: 0;
+}
+.slide > img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border-radius: 10px;
+}
+.slide[data-active] {
+    opacity: 1;
+}
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    border: none;
+    background: none;
+    font-size: 3rem;
+    background-color: rgba(0, 0, 0, .1);
+    width: 70px;
+    height: 70px;
+    border-radius: 8px;
+    color: rgba(255, 255, 255, .4);
+}
+.prev {
+    left: 1rem;
+}
+.next {
+    right: 1rem;
+}
+.carousel-button:hover {
+    background-color: rgba(0, 0, 0, .3);
+    color: rgba(255, 255, 255, 1);
+}
+
+
+
+
+
+
+@media (max-width: 768px) {
+    .details-row > .row-name {
+        font-size: 1.2rem;
+        width: 140px;
+    }
+    .details-row .table-responsive {
+        width: 90%;
+    }
+}

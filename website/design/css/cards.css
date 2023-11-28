@@ -1,0 +1,347 @@
+:root {
+    --bg-color: #f5f5f5;
+    --red-color: #ea7186;
+    --yellow-color: #F2C76E;
+    --light-blue-color: #7A77B9;
+    --light-blue-2-color: #BD9DEA;
+    --white-color: #ffffff;
+    --black-color: #212121;
+    --main-transition: all .4s ease-in-out;
+}
+/* users cards  */
+.dottes {
+    width: 30px;
+    display: flex;
+    gap: 3px;
+    height: 7px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+}
+.dott {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: #212121;
+}
+.controllers {
+    position: absolute;
+    top: 40px;
+    right: 15px;
+    opacity: 0;
+    visibility: hidden;
+}
+.controllers.active {
+    opacity: 1;
+    visibility: visible;
+}
+.controllers > a {
+    background-color: var(--light-blue-2-color);
+    padding: 3px 5px;
+    border-radius: 5px;
+    color: var(--white-color);
+}
+.cards-container {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: row wrap;
+    gap: 1rem;
+    margin-top: 10px;
+}
+.user-card,
+.company-card {
+    position: relative;
+    background-color: var(--white-color);
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 300px;
+    height: 300px;
+    gap: 20px;
+    box-shadow: 2px 1px 13px -4px rgba(0,0,0,0.75);
+}
+.user-card > .top,
+.company-card > .image {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.user-card > .bottom,
+.product-card > .bottom {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+    gap: 10px;
+}
+.user-card > .top svg,
+.company-card > .image > svg {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: var(--bg-color);
+}
+.user-card > .top p {
+    color: var(--red-color);
+    font-weight: 500;
+}
+.user-card > .bottom a,
+.product-card > .bottom a,
+.product-card > .bottom button
+ {
+     background-color: transparent;
+    position: relative;
+    text-align: center;
+    padding: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-weight: 600;
+    color: var(--black-color);
+    z-index: 2;
+}
+.user-card > .bottom a::before,
+.product-card > .bottom a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    background-image: linear-gradient(45deg, var(--red-color), var(--yellow-color));
+    transition: var(--main-transition);
+    z-index: -1;
+}
+.bottom a:hover {
+    color: var(--white-color);
+}
+.bottom a:hover::before {
+    width: 100%;
+}
+.full-user-card {
+    display: flex;
+    gap: 20px;
+}
+.full-user-card > .image {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.full-user-card > .image > .name {
+    opacity: .7;
+}
+.full-user-card > .image svg {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+.full-user-card > .image img {
+    width: 150px;
+    border-radius: 20px;
+}
+.full-user-card > .details {
+    flex: 2;
+    gap: 10px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-flow: wrap;
+    background-color: var(--white-color);
+    padding: 20px;
+    position: relative;
+}
+.column-ctrl {
+    width: fit-content;
+    margin: 0 auto;
+    text-align: center;
+}
+.full-user-card > .details > .detail-column {
+    width: 300px;
+    padding: 5px 10px;
+}
+.details > .detail-column span {
+    color: var(--red-color);
+    font-size: 1.2rem;
+}
+.details > .detail-column {
+    color: var(--black-color);
+}
+/* users cards  */
+
+/* companies cards  */
+.company-card:hover {
+    transform: translateY(-4px);
+}
+.company-card > .image {
+    flex: 2;
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+}
+.company-card > .image > img {
+    width: 100%;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    height: 200px;
+    object-fit: cover;
+}
+.company-card > .details {
+    flex: 1;
+}
+.company-card > .card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .5);
+    border-radius: 20px;
+    opacity: 0;
+}
+.company-card:hover > .card-overlay,
+.company-card:hover > .ctrl-btn > a {
+    opacity: 1;
+}
+.company-card > .ctrl-btn {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+.company-card > .ctrl-btn > a {
+    width: 200px;
+    border-radius: 20px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white-color);
+    opacity: 0;
+}
+.company-card > .ctrl-btn > .company-card-btn  {
+    background-color: var(--yellow-color);
+}
+/* companies cards  */
+
+/* products cards  */
+.product-card {
+    position: relative;
+    background-color: var(--white-color);
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 250px;
+    height: 320px;
+    gap: 10px;
+    box-shadow: 2px 1px 13px -4px rgba(0,0,0,0.75);
+}
+.product-card > .top {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.product-card > .top > img {
+    height: 130px;
+    margin-bottom: 10px;
+}
+.product-card > .top > p {
+    color: var(--red-color);
+    font-weight: 500;
+    font-size: 1.5rem;
+}
+/* products cards  */
+
+.compareCard {
+    display: none;
+    gap: 10px;
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--red-color);
+    padding: 5px;
+    border-radius: 5px;
+    align-items: center;
+    box-shadow: 2px 1px 13px -4px rgb(0 0 0 / 75%);
+    z-index: 10;
+}
+.compareCard > a {
+    padding: 10px;
+    background-color: var(--white-color);
+    color: var(--black-color);
+    border-radius: 10px;
+}
+.productCompareCard {
+    border-radius: 10px;
+    padding: 5px;
+    width: 200px;
+}
+
+.main-product-container {
+    display: flex;
+    gap: 10px;
+}
+.products {
+    flex: 2;
+}
+.filter-products {
+    width: 300px;
+}
+.filter-products-form-con {
+    background-color: var(--white-color);
+    border-radius: 20px;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, .2);
+    margin-top: 20px;
+    padding: 20px 10px;
+}
+.filter-products-form-con > h4 {
+    margin-top: 10px;
+}
+.search-filter {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+.search-input {
+    width: 90%;
+    border: 1px solid rgba(0, 0, 0, .5);
+    padding: 5px 20px;
+    border-radius: 10px;
+    outline: none;
+}
+.search-input-btn {
+    border: none;
+    outline: none;
+    padding: 5px 8px;
+    border-radius: 5px;
+    background-color: var(--light-blue-2-color);
+    color: var(--white-color);
+}
+@media (max-width: 768px) {
+    .full-user-card {
+        flex-direction: column;
+    }
+}
